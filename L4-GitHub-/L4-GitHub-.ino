@@ -131,3 +131,21 @@ void voltaje2(void) // Voltaje potenciometro 2
   LCD.print(unidades1);
   LCD.print(decimal1);
 }
+void UPC(void) // Valor contador 
+{
+  // Operación para obtener centenas, decenas y unidades del valor del contador 
+  int cont = contador;
+  centenas = cont / 100.0;
+  cont = cont - centenas * 100.0;
+  decenas2 = cont / 10.0;
+  cont = cont - decenas2 * 10.0;
+  unidades2 = cont;
+
+// Impresión del valor del contador en la pantalla LCD
+  LCD.setCursor(0, 12);
+  LCD.print("UPC:");
+  LCD.setCursor(1, 12);
+  LCD.print(centenas);
+  LCD.print(decenas2);
+  LCD.print(unidades2);
+}
