@@ -64,6 +64,22 @@ void IRAM_ATTR ISRbtn2()
 //**********************************************************************************************************************
 // Configuracion
 //**********************************************************************************************************************
+void setup()
+{
+  // Velocidad a la que trabaja la comunicación serial
+  Serial.begin(115200);
+
+  // Se establece que los botones son entradas
+  pinMode(btn1, INPUT_PULLUP);
+  pinMode(btn2, INPUT_PULLUP);
+
+  // Se establece que la LCD utilizada es de 16x2
+  LCD.begin(16, 2);
+
+  // Se establece la relación entre los botones y sus respectivas interrupciones
+  attachInterrupt(btn1, ISRbtn1, HIGH);
+  attachInterrupt(btn2, ISRbtn2, HIGH);
+}
 //**********************************************************************************************************************
 // LOOP
 //**********************************************************************************************************************
