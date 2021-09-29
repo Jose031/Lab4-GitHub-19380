@@ -26,6 +26,9 @@
 //**********************************************************************************************************************
 // Prototipo de Funciones
 //**********************************************************************************************************************
+void voltaje1(void); // Función para la impresión del voltaje del potenciometro 1
+void voltaje2(void); // Función para la impresión del voltaje del potenciometro 2
+void UPC(void);      // Función para la impresión del contador en la LCD
 //**********************************************************************************************************************
 // Variables Globales
 //**********************************************************************************************************************
@@ -42,6 +45,22 @@ float voltajeB;
 //**********************************************************************************************************************
 // ISR: Interrupciones
 //**********************************************************************************************************************
+void IRAM_ATTR ISRbtn1()
+{ // Interrupción del boton de incrementar el contador
+  estadobtn1 = 1;
+  if (contador > 255)
+  { // Condición que establece que el contador no se mayor al numero de condiciones que se tiene.
+    contador = 0;
+  }
+}
+void IRAM_ATTR ISRbtn2()
+{ // Interrupción del boton de decrementar el contador
+  estadobtn2 = 1;
+  if (contador < 0)
+  { // Condición que establece que el contador no tenga valores negativos.
+    contador = 0;
+  }
+}
 //**********************************************************************************************************************
 // Configuracion
 //**********************************************************************************************************************
