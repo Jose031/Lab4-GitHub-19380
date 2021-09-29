@@ -29,6 +29,7 @@
 void voltaje1(void); // Función para la impresión del voltaje del potenciometro 1
 void voltaje2(void); // Función para la impresión del voltaje del potenciometro 2
 void UPC(void);      // Función para la impresión del contador en la LCD
+
 //**********************************************************************************************************************
 // Variables Globales
 //**********************************************************************************************************************
@@ -86,3 +87,25 @@ void setup()
 //**********************************************************************************************************************
 // Fuinciones
 //**********************************************************************************************************************
+void voltaje1(void) // Voltaje potenciometro 1
+{
+  // Conversión de señal ADC a miliVoltios
+  voltaje = analogReadMilliVolts(pot1) / 10.0;
+
+  // Operación para obtener unidades y decimales del voltaje del Potenciometro 1
+  int vol = voltaje;
+  decenas = vol / 100.0;
+  vol = vol - decenas * 100.0;
+  unidades = vol / 10.0;
+  vol = vol - unidades * 10.0;
+  decimal = vol;
+
+  // Impresión del voltaje del potenciometro 1 en la LCD con su respectiva posición
+  LCD.clear();
+  LCD.print("Pot1:");
+  LCD.setCursor(1, 0);
+  LCD.print(decenas);
+  LCD.print('.');
+  LCD.print(unidades);
+  LCD.print(decimal);
+}
