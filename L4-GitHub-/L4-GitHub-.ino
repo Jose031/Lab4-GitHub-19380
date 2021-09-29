@@ -84,6 +84,18 @@ void setup()
 //**********************************************************************************************************************
 // LOOP
 //**********************************************************************************************************************
+{
+  if (estadobtn1 == 1) // Condición que evalua el estado del botón 1, la cual aumenta el valor del contador y cambia el estado del botón 1
+  {
+    contador++;
+    estadobtn1 = 0;
+  }
+
+  if (estadobtn2 == 1) // Condición que evalua el estado del botón 2, la cual decrece el valor del contador y cambia el estado del botón 2
+  {
+    contador--;
+    estadobtn2 = 0;
+  }
 //**********************************************************************************************************************
 // Fuinciones
 //**********************************************************************************************************************
